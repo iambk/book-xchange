@@ -1,0 +1,21 @@
+{
+  "name": "book-xchange",
+  "version": "1.0.0",
+  "description": "A book exchange platform",
+  "main": "server.js",
+  "repository": "git@github.com:iambk/bookXchange.git",
+  "author": "Bharath Kumar <kumarbharath718@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "helmet": "^3.15.0",
+    "mysql": "^2.16.0",
+    "passport": "^0.4.0",
+    "pug": "^2.0.3"
+  }
+}
