@@ -25,6 +25,20 @@ html(lang="en")
         li.nav-item
           a.nav-link(href='/signup') Sign up
   #home
-    #intro
-      h1.text-center(style="color: white; font-size: 3rem;") Welcome to xBooks!
-      p.text-center(style="font-size: 1.4rem;") xBooks is an exclusive platform for MEC, where you can buy/sell books among the students of MEC. No need to worry about your old books getting wasted or buying new books for huge prices!
+    #login-form.container
+      .row
+        .col-xs-2.col-sm-2.col-md-2.col-lg-4
+        .col-xs-8.col-sm-8.col-md-8.col-lg-4
+          h2.text-center Sign in to xBooks
+          form(action='/login', method="POST")
+            .form-group
+              label Username:
+              input.form-control(type='text' placeholder='Your username' name='username' required)
+            .form-group
+              label Password:
+              input.form-control(type='password' placeholder='Your password' name='password' required)
+            button.btn.btn-primary(type='submit') Sign in
+          if error
+            .alert.alert-danger.margin-top(role="alert")
+              | Invalid credentials
+

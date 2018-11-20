@@ -25,6 +25,33 @@ html(lang="en")
         li.nav-item
           a.nav-link(href='/signup') Sign up
   #home
-    #intro
-      h1.text-center(style="color: white; font-size: 3rem;") Welcome to xBooks!
-      p.text-center(style="font-size: 1.4rem;") xBooks is an exclusive platform for MEC, where you can buy/sell books among the students of MEC. No need to worry about your old books getting wasted or buying new books for huge prices!
+    #login-form.container
+      .row
+        .col-xs-2.col-sm-2.col-md-2.col-lg-4
+        .col-xs-8.col-sm-8.col-md-8.col-lg-4
+          h2.text-center Sign up with xBooks
+          form(action='/signup', method="POST")
+            .form-group
+              label Username:
+              input.form-control(type='text' placeholder='Pick a username' name='username' required)
+            .form-group
+              label Email:
+              input.form-control(type='email' placeholder='you@example.com' name='email' required)
+            .form-group
+              label Password:
+              input.form-control(type='password' placeholder='Create a password' name='password' required)
+            .form-group
+              label Confirm password:
+              input.form-control(type='password' placeholder='Create a password' name='passwordMatch' required)
+            button.btn.btn-primary(type='submit') Sign up
+  #taken
+    if taken
+      .margin-top
+        .alert.alert-danger
+          | Username is taken
+  #error
+    if error
+      .margin-top
+        .alert.alert-danger
+          | Make sure your username is atleast 4 characters long and contains only letters numbers or underscores, password is atleast 8 characters long and contains one lowercase, uppercase, number and special character and your email is valid.
+

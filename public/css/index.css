@@ -1,0 +1,62 @@
+body {
+  overflow-y: hidden;
+}
+
+.pad-left {
+  padding-left: 10%;
+}
+
+.pad-right {
+  padding-right: 10%;
+}
+
+.margin-right {
+  margin-right: 10%;
+}
+
+#home {
+  position: relative;
+  height: 100vh;
+  display: block;
+}
+
+#home::after {
+  content: "";
+  background: url("/public/assets/book-bg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+#intro, #login-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#login-form {
+  opacity: 0.8;
+}
+
+.margin-top {
+  margin-top: 3%;
+  font-size: 0.8rem;
+}
+
+#taken {
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+}
+
+#error {
+  position: absolute;
+  bottom: 0;
+}
