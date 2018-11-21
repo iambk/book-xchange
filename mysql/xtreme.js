@@ -8,3 +8,8 @@ const SearchTitleAuthor = (Title, Author) =>
 { 
 	const search_title_author = 'select * from book where Title=$(Title) and Author=$(Author);';
 }; 
+ 
+const SearchCategory = (Category) =>  
+{ 
+	const search_title_author = 'select * from book where CategoryID IN (select * from Category where CategoryName=$(Category));';
+}; 
