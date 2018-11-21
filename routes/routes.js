@@ -61,7 +61,7 @@ router.post('/signup', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    db.query(`select * from wadu where username = ?`, [username], (err, result) => {
+    db.query(`select * from User where Username = ?`, [username], (err, result) => {
       if(err) {
         throw err;
       } else if(result[0]) {
@@ -71,7 +71,7 @@ router.post('/signup', (req, res) => {
           if(err) {
             throw err;
           }
-          db.query(`insert into wadu(username, email, password) values(?, ?, ?)`, [username, email, hash], (err, results) => {
+          db.query(`insert into User(Username, Email, Password) values(?, ?, ?)`, [username, email, hash], (err, results) => {
             if(err) {
               throw err;
             }
