@@ -67,7 +67,7 @@ app.use(passport.session());
 passport.use(new LocalStrategy((username, password, done) => {
   console.log(username);
   console.log(password);
-  db.query(`select id, password from wadu where username = ?`, [username], (err, results, fields) => {
+  db.query(`select id, password from User where Username = ?`, [username], (err, results, fields) => {
     if(err) done(err);
     if(results.length === 0) {
       done(null, false);

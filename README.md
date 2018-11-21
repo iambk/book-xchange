@@ -63,6 +63,8 @@ DB_HOST=localhost
 DB_USER=
 DB_PASS=
 DB_NAME=
+SESSION_COOKIE_NAME=			#any string
+SESSION_SECRET=					#any string
 ```
 
   > .env is a shell file so there can't be spaces around =
