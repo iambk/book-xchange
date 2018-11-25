@@ -33,8 +33,7 @@ html(lang="en")
             input(type='file' name='file')
       .col-md-6
         .profile-head
-          h5
-            | Kshiti Ghelani
+          h5= user.Username
           h6
             | Web Developer and Designer
           p.proile-rating
@@ -60,21 +59,21 @@ html(lang="en")
           #home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
             .row
               .col-md-6
-                label User Id
+                label Username
               .col-md-6
-                p Kshiti123
+                p= user.Username
             .row
               .col-md-6
                 label Name
               .col-md-6
-                p Kshiti Ghelani
+                p= user.FNAME
             .row
               .col-md-6
                 label Email
               .col-md-6
-                p kshitighelani@gmail.com
+                p= user.Email
             .row
               .col-md-6
                 label Phone
               .col-md-6
-                p 123 456 7890
+                p= user.Phone

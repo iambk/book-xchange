@@ -38,7 +38,6 @@ html(lang="en")
               label Password:
               input.form-control(type='password' placeholder='Your password' name='password' required)
             button.btn.btn-primary(type='submit') Sign in
-          if error
-            .alert.alert-danger.margin-top(role="alert")
-              | Invalid credentials
+          -if(message)
+            .alert.alert-danger.margin-top(role="alert") !{error_messages}
 

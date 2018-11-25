@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const expressValidator = require('express-validator');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const passport = require('passport');
@@ -8,26 +7,45 @@ const authCheck = (req, res, next) => {
   console.log(req.user);
   console.log(req.isAuthenticated());
   if(req.isAuthenticated()) {
-    res.render('profile', {user: req.user.user_id});
+    res.redirect('/profile');
+  } else {
+    return next();
   }
-  return next();
 };
+
+const onlyForProfile = (req, res, next) => {
+  console.log(req.user);
+  console.log(req.isAuthenticated());
+  if(req.isAuthenticated()) {
+    db.query(`select * from User where ID = ?`, [req.user.user_id], (err, results, fields) => {
+      if(err) throw err;
+      else {
+        console.log(results[0]);
+        res.render('profile', {user: results[0]});
+      }
+    });
+  } else {
+    return next();
+  }
+}
 
 router.get('/', authCheck, (req, res) => {
   res.render('index');
 });
 
-router.get('/profile', authCheck, (req, res) => {
+router.get('/profile', onlyForProfile, (req, res) => {
   res.redirect('/');
 });
 
 router.get('/login', authCheck, (req, res) => {
-  res.render('login', {error: false});
+  console.log(req.flash('error_messages'));
+  res.render('login');
 });
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/profile',
-  failureRedirect: '/login'
+  failureRedirect: '/login',
+  failureFlash: 'Invalid username or password.'
 }));
 
 router.get('/logout', (req, res) => {
